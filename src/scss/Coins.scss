@@ -1,0 +1,38 @@
+.Coins-page {
+    background-color: inherit;
+    min-height: 90vh;
+    padding: 20px;
+
+    label {
+        font-size: 1.5rem;
+    }
+}
+
+.Coins {
+    display: flex;
+    justify-content: space-around;
+    border: 1px solid black;
+    margin: 30px;
+}
+
+.Coin {
+    width: 60vw;
+    margin: 30px;
+    display: flex;
+    flex-direction: column;
+
+    div {
+        img {
+            width: 30%;
+        }
+        h2{
+            font-size: 4rem;
+        }
+    }
+
+    p {
+        font-size: 2rem;
+        margin: 10px 0;
+        text-align: start;
+    }
+}

@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import Coin from './Coin';
+import '../scss/Coins.scss';
 
 function Coins () {
 
@@ -22,7 +23,6 @@ function Coins () {
         const coinValue = element.options[element.selectedIndex].value;
         axios.get(`https://api.coingecko.com/api/v3/coins/${coinValue}`)
         .then(response => {
-            debugger
             setCoin(response.data)
         })
         .catch(err => {
@@ -31,12 +31,11 @@ function Coins () {
     }
 
     return (
-        <div>
+        <div className='Coins-page'>
             <form>
                 <fieldset>
-                    <legend>Selecting elements</legend>
                     <p>
-                        <label>Select list</label>
+                        <label>Select Coin: </label>
                         <select id='coins-list' onChange={selectCoin}>
                             {coins ? coins.map(coin => (
                                 <option key={coin.id} value = {coin.id}>{coin.name}</option>
@@ -45,7 +44,13 @@ function Coins () {
                     </p>
                 </fieldset>
             </form>
-            {coin ? <Coin coin={coin}/> : null}
+            {coin ? 
+                <div className='Coins'>
+                {coin ? <Coin coin={coin}/> : null}
+                </div>
+                : null
+            }
+            
         </div>
     )
 }
